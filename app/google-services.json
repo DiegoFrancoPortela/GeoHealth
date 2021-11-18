@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "387195360804",
+    "project_id": "geohealthalex-8d6b2",
+    "storage_bucket": "geohealthalex-8d6b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387195360804:android:5140d8695674f2e999eab1",
+        "android_client_info": {
+          "package_name": "com.geohealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387195360804-trrdb9jf2p1hj4c9abvbj4qt7sdel8os.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.geohealth",
+            "certificate_hash": "4d4214b82e6e9ff61d3124cf974d7dbbfbd9dc02"
+          }
+        },
+        {
+          "client_id": "387195360804-dq2agks53uqsb299toas6ujjeik9j5ck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvMHcojkHrsDDBxOVudBvyg6YSiGAincM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387195360804-dq2agks53uqsb299toas6ujjeik9j5ck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
