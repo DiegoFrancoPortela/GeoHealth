@@ -51,12 +51,14 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@color/colorBlueLight"
-                android:text="PACIENTE" />
+                android:text="PACIENTE"
+                android:layout_marginRight="5dp"/>
 
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:background="@color/white"
                 android:text="ENFERMERO" />
 
