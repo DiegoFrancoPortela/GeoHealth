@@ -41,7 +41,8 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBlueLight"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:text="PACIENTE"
                 android:layout_marginRight="5dp"/>
 
@@ -50,7 +51,8 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:background="@color/white"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/white"
                 android:text="ENFERMERO" />
 
         </LinearLayout>
