@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoHealth">
         <activity
+            android:name=".SelectOptionAuthActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

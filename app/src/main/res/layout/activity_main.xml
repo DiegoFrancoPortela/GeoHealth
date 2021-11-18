@@ -43,15 +43,17 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
+                android:background="@drawable/rounded_button"
                 android:textColor="@color/black"
+                android:backgroundTint="@color/colorAccent"
                 android:text="Soy Medico"
                 android:layout_marginRight="5dp"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/white"
                 android:textColor="@color/black"
                 android:text="Soy Paciente"
                 android:layout_marginLeft="5dp"/>
