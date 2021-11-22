@@ -44,6 +44,12 @@ class LoginActivity : AppCompatActivity() {
                             }
                         }
                 }
+                else {
+                    Toast.makeText(this,"La contraseña debe tener más de 6 carácteres",Toast.LENGTH_SHORT).show()
+                }
+            }
+             else {
+                Toast.makeText(this,"La contraseña y el Email son obligatorios",Toast.LENGTH_SHORT).show()
             }
         }
 
