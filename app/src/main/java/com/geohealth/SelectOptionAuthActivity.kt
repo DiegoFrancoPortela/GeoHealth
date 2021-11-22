@@ -1,5 +1,6 @@
 package com.geohealth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -20,12 +21,17 @@ class SelectOptionAuthActivity : AppCompatActivity() {
         val mButtonRegistro: Button = findViewById(R.id.btnRegistro)
 
         mButtonTengoCuenta.setOnClickListener() {
-
+            goToLogin()
         }
 
         mButtonRegistro.setOnClickListener() {
 
         }
 
+    }
+
+    private fun goToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
     }
 }
