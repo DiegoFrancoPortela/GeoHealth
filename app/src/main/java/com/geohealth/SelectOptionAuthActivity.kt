@@ -2,6 +2,7 @@ package com.geohealth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toolbar
 
 class SelectOptionAuthActivity : AppCompatActivity() {
@@ -14,6 +15,17 @@ class SelectOptionAuthActivity : AppCompatActivity() {
 
         supportActionBar?.setTitle("Seleccionar Opción")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val mButtonTengoCuenta: Button = findViewById(R.id.btnTengoCuenta)
+        val mButtonRegistro: Button = findViewById(R.id.btnRegistro)
+
+        mButtonTengoCuenta.setOnClickListener() {
+
+        }
+
+        mButtonRegistro.setOnClickListener() {
+
+        }
 
     }
 }
