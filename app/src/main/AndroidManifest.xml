@@ -13,7 +13,8 @@
         android:theme="@style/Theme.GeoHealth">
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".SelectOptionAuthActivity"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />

@@ -19,6 +19,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        setSupportActionBar(findViewById(R.id.toolbar))
+
+        supportActionBar?.setTitle("Login")
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val mTextInputEmail: TextInputEditText = findViewById(R.id.textInputEmail)
         val mTextInputPassword: TextInputEditText = findViewById(R.id.textInputPassword)
 

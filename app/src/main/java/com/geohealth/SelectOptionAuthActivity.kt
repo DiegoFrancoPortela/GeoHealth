@@ -25,13 +25,18 @@ class SelectOptionAuthActivity : AppCompatActivity() {
         }
 
         mButtonRegistro.setOnClickListener() {
-
+            goToRegister()
         }
 
     }
 
     private fun goToLogin() {
         val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToRegister() {
+        val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
 }
