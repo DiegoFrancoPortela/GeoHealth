@@ -2,7 +2,9 @@ package com.geohealth
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.geohealth.models.User
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -23,10 +25,51 @@ class RegisterActivity : AppCompatActivity() {
         val mDatabase: DatabaseReference = FirebaseDatabase.getInstance().getReference()
         // --------
 
+        fun guardarUsuario(name:String, email:String) {
+
+            val user = User();
+
+            user.name = name
+            user.email = email
+
+            mDatabase.child("usuarios").child("clientes").push().setValue(user).addOnCompleteListener()
+            { task ->
+                if (task.isSuccessful()) {
+                    Toast.makeText(this,"Registro Completado",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this,"Registro Fallido",Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        fun registerUser() {
+            var name: String = mTextInputName.getText().toString()
+            var email: String = mTextInputEmail.getText().toString()
+            var password: String = mTextInputPassword.getText().toString()
+
+            if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
+                if (password.length >= 6) {
+                    mAuth.createUserWithEmailAndPassword(email,password)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful()) {
+                                guardarUsuario(name, email)
+                                Toast.makeText(this,"Registro Correcto",Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(this,"No se pudo registrar el usuario",Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                } else {
+                    Toast.makeText(this,"La contraseña debe tener al menos 6 carácteres",Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this,"Debe completar todos los campos",Toast.LENGTH_SHORT).show()
+            }
+        }
 
         mButtonRegistro.setOnClickListener() {
             registerUser()
         }
 
     }
+
 }

@@ -41,7 +41,6 @@ class LoginActivity : AppCompatActivity() {
             if (!email.isEmpty() && !password.isEmpty()) {
                 // Validación para ver si la contraseña en mayor o igual a 6
                 if (password.length >= 6) {
-
                     mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful()) {
