@@ -27,8 +27,10 @@ class LoginActivity : AppCompatActivity() {
         val mTextInputEmail: TextInputEditText = findViewById(R.id.textInputEmail)
         val mTextInputPassword: TextInputEditText = findViewById(R.id.textInputPassword)
 
+        // Firebase
         val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
         val mDatabase: DatabaseReference = FirebaseDatabase.getInstance().getReference()
+        // --------
 
         val mButtonLogin: Button = findViewById(R.id.btnLogin)
 
