@@ -13,9 +13,16 @@ import com.google.firebase.ktx.Firebase
 import dmax.dialog.SpotsDialog
 
 class LoginActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        setSupportActionBar(findViewById(R.id.toolbar))
+
+        supportActionBar?.setTitle("Login")
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val mTextInputEmail: TextInputEditText = findViewById(R.id.textInputEmail)
         val mTextInputPassword: TextInputEditText = findViewById(R.id.textInputPassword)
 
@@ -39,19 +46,29 @@ class LoginActivity : AppCompatActivity() {
                     mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful()) {
-                                Toast.makeText(this,"Login Exitoso",Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Login Exitoso", Toast.LENGTH_SHORT).show()
 
                             } else {
-                                Toast.makeText(this,"Email o Contraseña incorrectos",Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this,
+                                    "Email o Contraseña incorrectos",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
+                } else {
+                    Toast.makeText(
+                        this,
+                        "La contraseña debe tener más de 6 carácteres",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-                else {
-                    Toast.makeText(this,"La contraseña debe tener más de 6 carácteres",Toast.LENGTH_SHORT).show()
-                }
-            }
-            else {
-                Toast.makeText(this,"La contraseña y el Email son obligatorios",Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(
+                    this,
+                    "La contraseña y el Email son obligatorios",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 

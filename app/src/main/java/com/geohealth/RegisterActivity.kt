@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.geohealth.modelos.Usuarios
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -16,12 +17,25 @@ class RegisterActivity : AppCompatActivity() {
 
         val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
         val mDatabase: DatabaseReference = FirebaseDatabase.getInstance().getReference()
+
         val mButtonRegister: Button = findViewById(R.id.btnRegister)
         val mTextInputEmail: TextInputEditText = findViewById(R.id.textInputEmail)
         val mTextInputPassword: TextInputEditText = findViewById(R.id.textInputPassword)
         val mTextInputName: TextInputEditText = findViewById(R.id.textInputName)
         fun saveUser(name: String,email: String) {
-            mDatabase.child("Usuarios").child("Clientes").setValue()
+            val user = Usuarios();
+
+            user.name = name
+            user.email = email
+
+            mDatabase.child("usuarios").child("clientes").push().setValue(user).addOnCompleteListener() {
+                task ->
+                if(task.isSuccessful()){
+                    Toast.makeText(this,"Registro Completado",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this,"Registro Fallido",Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         fun registerUser() {
