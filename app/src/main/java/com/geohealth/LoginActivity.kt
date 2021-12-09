@@ -1,5 +1,6 @@
 package com.geohealth
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -9,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import dmax.dialog.SpotsDialog
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +20,10 @@ class LoginActivity : AppCompatActivity() {
         val mTextInputPassword: TextInputEditText = findViewById(R.id.textInputPassword)
 
         val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+        /*
+        TODO("implementar progres dialog")
+        val mDialog: AlertDialog = SpotsDialog.Builder(LoginActivity).setContext()
+         */
         val mDatabase: DatabaseReference = FirebaseDatabase.getInstance().getReference()
 
         val mButtonLogin: Button = findViewById(R.id.btnLogin)
@@ -34,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful()) {
                                 Toast.makeText(this,"Login Exitoso",Toast.LENGTH_SHORT).show()
+
                             } else {
                                 Toast.makeText(this,"Email o Contraseña incorrectos",Toast.LENGTH_SHORT).show()
                             }
