@@ -1,5 +1,6 @@
 package com.geohealth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -44,7 +45,10 @@ class LoginActivity : AppCompatActivity() {
                     mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful()) {
-                                Toast.makeText(this,"Login Exitoso",Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(this,"Login Exitoso",Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this, MapActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                startActivity(intent)
                             } else {
                                 Toast.makeText(this,"Email o Contraseña incorrectos",Toast.LENGTH_SHORT).show()
                             }

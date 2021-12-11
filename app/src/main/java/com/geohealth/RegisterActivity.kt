@@ -1,5 +1,7 @@
 package com.geohealth
 
+import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -59,7 +61,10 @@ class RegisterActivity : AppCompatActivity() {
                             if (task.isSuccessful()) {
                                 var id = mAuth.currentUser?.uid;
                                 guardarUsuario(id.toString(), name, email)
-                                Toast.makeText(this,"Registro Correcto",Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(this,"Registro Correcto",Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this, MapActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                startActivity(intent)
                             } else {
                                 Toast.makeText(this,"No se pudo registrar el usuario",Toast.LENGTH_SHORT).show()
                             }
