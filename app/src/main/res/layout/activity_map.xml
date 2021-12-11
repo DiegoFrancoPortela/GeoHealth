@@ -8,10 +8,11 @@
     android:fitsSystemWindows="true"
     tools:context=".MapActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mapa">
-    </TextView>
+        android:text="Cerrar Sesión">
+    </Button>
 
   </androidx.coordinatorlayout.widget.CoordinatorLayout>
