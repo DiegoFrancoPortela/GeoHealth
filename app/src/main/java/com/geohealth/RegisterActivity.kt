@@ -20,19 +20,24 @@ class RegisterActivity : AppCompatActivity() {
         val mTextInputEmail: TextInputEditText = findViewById(R.id.textInputEmail)
         val mTextInputPassword: TextInputEditText = findViewById(R.id.textInputPassword)
 
+        setSupportActionBar(findViewById(R.id.toolbar))
+
+        supportActionBar?.setTitle("Registrar Usuario")
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         // Firebase
         val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
         val mDatabase: DatabaseReference = FirebaseDatabase.getInstance().getReference()
         // --------
 
-        fun guardarUsuario(name:String, email:String) {
+        fun guardarUsuario(id: String, name:String, email:String) {
 
             val user = User();
 
             user.name = name
             user.email = email
 
-            mDatabase.child("usuarios").child("clientes").push().setValue(user).addOnCompleteListener()
+            mDatabase.child("usuarios").child("clientes").child(id).setValue(user).addOnCompleteListener()
             { task ->
                 if (task.isSuccessful()) {
                     Toast.makeText(this,"Registro Completado",Toast.LENGTH_SHORT).show()
@@ -52,7 +57,8 @@ class RegisterActivity : AppCompatActivity() {
                     mAuth.createUserWithEmailAndPassword(email,password)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful()) {
-                                guardarUsuario(name, email)
+                                var id = mAuth.currentUser?.uid;
+                                guardarUsuario(id.toString(), name, email)
                                 Toast.makeText(this,"Registro Correcto",Toast.LENGTH_SHORT).show()
                             } else {
                                 Toast.makeText(this,"No se pudo registrar el usuario",Toast.LENGTH_SHORT).show()
