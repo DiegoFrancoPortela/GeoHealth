@@ -102,6 +102,14 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/googleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:text="Button"
+            android:textColor="@color/black" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
