@@ -1,6 +1,7 @@
 package com.geohealth
 
 import android.app.AlertDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -47,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful()) {
                                 Toast.makeText(this, "Login Exitoso", Toast.LENGTH_SHORT).show()
-
+                                goToMap()
                             } else {
                                 Toast.makeText(
                                     this,
@@ -74,6 +75,14 @@ class LoginActivity : AppCompatActivity() {
 
         mButtonLogin.setOnClickListener() {
             login()
+
         }
+
     }
+
+    private fun goToMap() {
+        val intent = Intent(this, MapActivity::class.java)
+        startActivity(intent)
+    }
+
 }
