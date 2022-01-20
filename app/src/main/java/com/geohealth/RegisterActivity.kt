@@ -34,7 +34,7 @@ class RegisterActivity : AppCompatActivity() {
 
         fun guardarUsuario(id: String, name:String, email:String) {
 
-            val user = User();
+            val user = User()
 
             user.name = name
             user.email = email

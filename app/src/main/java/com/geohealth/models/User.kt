@@ -6,9 +6,7 @@ class User {
     var name: String = ""
     var email: String = ""
 
-    constructor() {
-
-    }
+    constructor()
 
     constructor(id: String, name: String, email: String) {
         this.id = id

@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -19,40 +21,49 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap : GoogleMap
     private lateinit var mMapFragment : SupportMapFragment
 
+    //Firebase
+    val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+    //
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
+
+        setSupportActionBar(findViewById(R.id.toolbar))
+
+        supportActionBar?.setTitle("Mapa")
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Maps
         val mMapFragment : SupportMapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mMapFragment.getMapAsync(this)
         //
 
-        //val mButtonLogout: Button = findViewById(R.id.btnLogout)
+    }
 
-        //Firebase
-        val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-        //
-
-        /*
-        fun logout() {
-            // Metodo para cerrar sesión y cambiar de actividad.
-            mAuth.signOut()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            // Finish para terminar esta Activity
-            finish()
-        }
-
-        mButtonLogout.setOnClickListener() {
-            logout()
-        }
-        */
-
+    fun logout() {
+        // Metodo para cerrar sesión y cambiar de actividad.
+        mAuth.signOut()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        // Finish para terminar esta Activity
+        finish()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.map_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_logout) {
+            logout()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     // Función para comprobar permiso de localización
