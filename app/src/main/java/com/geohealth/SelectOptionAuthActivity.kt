@@ -3,6 +3,7 @@ package com.geohealth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Toolbar
 
@@ -33,6 +34,7 @@ class SelectOptionAuthActivity : AppCompatActivity() {
 
     private fun goToLogin() {
         val intent = Intent(this, LoginActivity::class.java)
+        Log.d("login", "entra")
         startActivity(intent)
     }
 }
