@@ -14,9 +14,18 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar" >
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">@color/white</item>
         <item name="titleTextColor">@color/white</item>
     </style>
+
+    <style name="Theme.GeoHealth.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.GeoHealth.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.GeoHealth.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

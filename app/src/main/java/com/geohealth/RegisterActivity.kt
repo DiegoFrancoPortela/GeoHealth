@@ -1,7 +1,6 @@
 package com.geohealth
 
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast

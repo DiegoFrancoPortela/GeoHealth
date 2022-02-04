@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     tools:context=".RegisterActivity">
 
-    <include layout="@layout/action_bar_toollbar"/>
+    <include layout="@layout/action_bar_toolbar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
