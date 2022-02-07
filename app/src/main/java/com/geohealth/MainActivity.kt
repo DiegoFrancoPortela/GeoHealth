@@ -9,18 +9,19 @@ import com.geohealth.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
-        val mButtonSoyPaciente: Button = findViewById(R.id.btnSoyPaciente)
-        val mButtonSoyEnfermero: Button = findViewById(R.id.btnSoyEnfermero)
+        setContentView(binding.root)
 
-        mButtonSoyPaciente.setOnClickListener() {
+        binding.btnSoyPaciente.setOnClickListener() {
             goToSelectAuth()
         }
 
-        mButtonSoyEnfermero.setOnClickListener() {
+        binding.btnSoyEnfermero.setOnClickListener() {
             goToSelectAuth()
         }
 
