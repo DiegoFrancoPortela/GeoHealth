@@ -1,6 +1,7 @@
 package com.geohealth
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,18 +11,32 @@ import com.geohealth.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
+    // SharedPreferences nos servirá para guardar datos tipo clave-valor
+    /*
+    Con esto podremos almacenar datos tipo "usuario-paciente" o "usuario-enfermero" y poder
+    distinguirlos. Además, los datos de SharedPreferences no se eliminarán a menos que desintalemos la
+    aplicación o se lo pidamos nosotros.
+    */
+
+    private lateinit var mPref : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        mPref = applicationContext.getSharedPreferences("typeUser", MODE_PRIVATE)
+        var editor : SharedPreferences.Editor = mPref.edit()
 
         setContentView(binding.root)
 
         binding.btnSoyPaciente.setOnClickListener() {
+            editor.putString("usuario","paciente")
+            editor.apply()
             goToSelectAuth()
         }
 
         binding.btnSoyEnfermero.setOnClickListener() {
+            editor.putString("usuario","enfermero")
+            editor.apply()
             goToSelectAuth()
         }
 
