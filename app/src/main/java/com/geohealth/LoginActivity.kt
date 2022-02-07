@@ -1,5 +1,6 @@
 package com.geohealth
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,6 +30,12 @@ class LoginActivity : AppCompatActivity() {
         val mDatabase: DatabaseReference = FirebaseDatabase.getInstance().getReference()
         // --------
 
+        // Progress Dialog
+        val progressDialog = ProgressDialog(this@LoginActivity)
+        progressDialog.setTitle("Iniciando Sesión...")
+        progressDialog.setMessage("Procesando datos, espere...")
+        // --------
+
         val mButtonLogin: Button = findViewById(R.id.btnLogin)
 
          fun login() {
@@ -36,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
             var password: String = mTextInputPassword.getText().toString()
 
             if (!email.isEmpty() && !password.isEmpty()) {
+                progressDialog.show()
                 // Validación para ver si la contraseña en mayor o igual a 6
                 if (password.length >= 6) {
                     mAuth.signInWithEmailAndPassword(email, password)

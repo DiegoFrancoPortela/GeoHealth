@@ -16,17 +16,18 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/icon_medicine"
+            android:src="@drawable/logo_agarimo"
             android:layout_marginTop="50dp"
             android:layout_gravity="center" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="GeoHealth"
+            android:layout_margin="40dp"
+            android:text="Agarimo"
+            android:fontFamily="monospace"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:layout_margin="40dp"
             android:textSize="20sp"
             android:textStyle="bold" />
 
