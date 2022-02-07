@@ -45,7 +45,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
         setSupportActionBar(binding.toolbar.toolbar)
 
         supportActionBar?.setTitle("Mapa")
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Maps
         val mMapFragment : SupportMapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
