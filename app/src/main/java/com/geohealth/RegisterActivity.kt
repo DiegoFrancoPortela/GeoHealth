@@ -2,26 +2,25 @@ package com.geohealth
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.geohealth.databinding.ActivityRegisterBinding
 import com.geohealth.models.User
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivityRegisterBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
 
-        val mButtonRegistro: Button = findViewById(R.id.btnRegistro)
-        val mTextInputName: TextInputEditText = findViewById(R.id.textInputName)
-        val mTextInputEmail: TextInputEditText = findViewById(R.id.textInputEmail)
-        val mTextInputPassword: TextInputEditText = findViewById(R.id.textInputPassword)
+        setContentView(binding.root)
 
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setSupportActionBar(binding.toolbar.toolbar)
 
         supportActionBar?.setTitle("Registrar Usuario")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -49,9 +48,9 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         fun registerUser() {
-            var name: String = mTextInputName.getText().toString()
-            var email: String = mTextInputEmail.getText().toString()
-            var password: String = mTextInputPassword.getText().toString()
+            var name: String = binding.textInputName.getText().toString()
+            var email: String = binding.textInputEmail.getText().toString()
+            var password: String = binding.textInputPassword.getText().toString()
 
             if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
                 if (password.length >= 6) {
@@ -76,7 +75,7 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        mButtonRegistro.setOnClickListener() {
+        binding.btnRegistro.setOnClickListener() {
             registerUser()
         }
 

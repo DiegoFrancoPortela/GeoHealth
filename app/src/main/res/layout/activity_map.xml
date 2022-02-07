@@ -8,7 +8,9 @@
     android:fitsSystemWindows="true"
     tools:context=".MapActivity">
 
-    <include layout="@layout/action_bar_toolbar"></include>
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/action_bar_toolbar"></include>
 
     <fragment
         android:id="@+id/map"

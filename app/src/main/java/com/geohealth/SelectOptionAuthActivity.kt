@@ -3,27 +3,28 @@ package com.geohealth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import com.geohealth.databinding.ActivitySelectOptionAuthBinding
 
 class SelectOptionAuthActivity : AppCompatActivity() {
 
+    private lateinit var binding : ActivitySelectOptionAuthBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_select_option_auth)
+        binding = ActivitySelectOptionAuthBinding.inflate(layoutInflater)
 
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar.toolbar)
 
         supportActionBar?.setTitle("Seleccionar Opción")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val mButtonTengoCuenta: Button = findViewById(R.id.btnTengoCuenta)
-        val mButtonRegistro: Button = findViewById(R.id.btnRegistro)
-
-        mButtonTengoCuenta.setOnClickListener() {
+        binding.btnTengoCuenta.setOnClickListener() {
             goToLogin()
         }
 
-        mButtonRegistro.setOnClickListener() {
+        binding.btnRegistro.setOnClickListener() {
             goToRegister()
         }
 

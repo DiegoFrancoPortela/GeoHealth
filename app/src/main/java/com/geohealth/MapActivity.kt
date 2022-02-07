@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.app.ActivityCompat
+import com.geohealth.databinding.ActivityMapBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -22,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
+    private lateinit var binding : ActivityMapBinding
     private lateinit var mMap : GoogleMap
     private lateinit var lastLocation : Location
     private lateinit var fusedLocationClient : FusedLocationProviderClient
@@ -36,9 +38,11 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_map)
+        binding = ActivityMapBinding.inflate(layoutInflater)
 
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar.toolbar)
 
         supportActionBar?.setTitle("Mapa")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -112,6 +116,5 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
     }
 
     override fun onMarkerClick(p0: Marker?) = false
-
 
 }
