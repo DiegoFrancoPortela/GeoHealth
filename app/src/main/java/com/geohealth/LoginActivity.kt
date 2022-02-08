@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.geohealth.databinding.ActivityLoginBinding
+import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar.toolbar)
+        // setSupportActionBar(binding.toolbar.toolbar)
 
         supportActionBar?.setTitle("Login")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -34,6 +35,11 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setTitle("Iniciando Sesión...")
         progressDialog.setMessage("Procesando datos, espere...")
         // --------
+
+        binding.botonAtras.setOnClickListener { view ->
+            val intent = Intent(this, SelectOptionAuthActivity::class.java)
+            startActivity(intent)
+        }
 
          fun login() {
             var email: String = binding.textInputEmail.getText().toString()

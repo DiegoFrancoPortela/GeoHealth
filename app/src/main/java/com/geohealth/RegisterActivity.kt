@@ -21,8 +21,6 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         mPref = applicationContext.getSharedPreferences("typeUser", MODE_PRIVATE)
-        var selectedUser = mPref.getString("usuario","")
-        Toast.makeText(this, "Se está usted registrando como: "+selectedUser, Toast.LENGTH_SHORT).show()
 
         setContentView(binding.root)
 
@@ -37,6 +35,23 @@ class RegisterActivity : AppCompatActivity() {
         // --------
 
         fun guardarUsuario(id: String, name:String, email:String) {
+
+            var selectedUser = mPref.getString("enfermero","")
+            var usuario = User()
+            /*
+            TODO Terminar de configurar la creación del usuario.
+
+            usuario.name(name)
+            usuario.email(email)
+            mDatabase.child("Usuarios").child("Enfermero").setValue()
+
+             */
+
+            if (selectedUser.equals("paciente")) {
+
+            } else if (selectedUser.equals("paciente")){
+
+            }
 
             val user = User()
 
