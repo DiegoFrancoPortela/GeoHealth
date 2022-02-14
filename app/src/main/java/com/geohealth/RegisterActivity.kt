@@ -36,34 +36,26 @@ class RegisterActivity : AppCompatActivity() {
 
         fun guardarUsuario(id: String, name:String, email:String) {
 
-            var selectedUser = mPref.getString("enfermero","")
-            var usuario = User()
-            /*
-            TODO Terminar de configurar la creación del usuario.
-
-            usuario.name(name)
-            usuario.email(email)
-            mDatabase.child("Usuarios").child("Enfermero").setValue()
-
-             */
+            val selectedUser = mPref.getString("usuario","")
+            val usuario = User(name, email)
 
             if (selectedUser.equals("paciente")) {
-
-            } else if (selectedUser.equals("paciente")){
-
-            }
-
-            val user = User()
-
-            user.name = name
-            user.email = email
-
-            mDatabase.child("usuarios").child("clientes").child(id).setValue(user).addOnCompleteListener()
-            { task ->
-                if (task.isSuccessful()) {
-                    Toast.makeText(this,"Registro Completado",Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this,"Registro Fallido",Toast.LENGTH_SHORT).show()
+                mDatabase.child("usuarios").child("pacientes").child(id).setValue(usuario).addOnCompleteListener()
+                { task ->
+                    if (task.isSuccessful()) {
+                        Toast.makeText(this,"Registro Completado",Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this,"Registro Fallido",Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else if (!selectedUser.equals("paciente")){
+                mDatabase.child("usuarios").child("enfermero").child(id).setValue(usuario).addOnCompleteListener()
+                { task ->
+                    if (task.isSuccessful()) {
+                        Toast.makeText(this,"Registro Completado",Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this,"Registro Fallido",Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
@@ -81,7 +73,7 @@ class RegisterActivity : AppCompatActivity() {
                                 var id = mAuth.currentUser?.uid;
                                 guardarUsuario(id.toString(), name, email)
                                 //Toast.makeText(this,"Registro Correcto",Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this, MapActivity::class.java)
+                                val intent = Intent(this, MainMenuActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 startActivity(intent)
                             } else {

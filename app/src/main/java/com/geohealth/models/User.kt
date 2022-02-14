@@ -1,15 +1,9 @@
 package com.geohealth.models
 
-class User {
-    var id: String = ""
-    var name: String = ""
-    var email: String = ""
+import com.google.firebase.database.IgnoreExtraProperties
 
-    constructor()
-
-    constructor(id: String, name: String, email: String) {
-        this.id = id
-        this.name = name
-        this.email = email
-    }
+@IgnoreExtraProperties
+data class User(val id: String?, val username: String? = null, val email: String? = null) {
+    // Null default values create a no-argument default constructor, which is needed
+    // for deserialization from a DataSnapshot.
 }
