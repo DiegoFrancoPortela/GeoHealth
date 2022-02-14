@@ -13,6 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoHealth">
+        <activity
+            android:name=".MainMenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main_menu"
+            android:theme="@style/Theme.GeoHealth.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -24,8 +29,7 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:parentActivityName=".SelectOptionAuthActivity">
-        </activity>
+            android:parentActivityName=".SelectOptionAuthActivity"></activity>
         <activity
             android:name=".RegisterActivity"
             android:exported="false"

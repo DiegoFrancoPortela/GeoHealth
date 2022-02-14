@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         // Si esto se cumple, quiere decir que tenemos un usuario creado.
         // Básicamente, al tener una sesion ya abierta, directamente evita el Login y el Register.
         if (FirebaseAuth.getInstance().currentUser != null) {
-            val intent = Intent(this, MapActivity::class.java)
+            val intent = Intent(this, MainMenuActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }

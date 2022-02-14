@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "86939511263",
+    "project_id": "geohealthdiego-85fe7",
+    "storage_bucket": "geohealthdiego-85fe7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86939511263:android:1f2da39753e0f7870ebc6a",
+        "android_client_info": {
+          "package_name": "com.geohealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86939511263-03jiim2am2bnlnt3omkn66r4v1f1evaf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.geohealth",
+            "certificate_hash": "6df8a2be8ad98c16cf9949315754ae79beae59ff"
+          }
+        },
+        {
+          "client_id": "86939511263-vh5rbhke37eau1rodaush69a6rmfgpub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsNA49QSlAsSqsmjYQ16PrHIYcNw-o6So"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86939511263-vh5rbhke37eau1rodaush69a6rmfgpub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

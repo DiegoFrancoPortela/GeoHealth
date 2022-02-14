@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+    Para obtener la API Key, accedemos a: https://console.cloud.google.com/
+    "API y Servicios" > "Proyecto de Firebase" > "Crear Credenciales" > "Clave API"
+    -->
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCwvoLuzXz-CLYZMMCGOYdbTaSakKLOF-s
+    </string>
+
+</resources>
