@@ -11,10 +11,15 @@ import android.view.Menu
 import android.view.MenuItem
 import com.geohealth.ui.main.SectionsPagerAdapter
 import com.geohealth.databinding.ActivityMainMenuBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainMenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainMenuBinding
+
+    //Firebase
+    val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+    //
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,4 +48,26 @@ class MainMenuActivity : AppCompatActivity() {
 
         }
     }
+
+    fun logout() {
+        // Metodo para cerrar sesión y cambiar de actividad.
+        mAuth.signOut()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        // Finish para terminar esta Activity
+        finish()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.mainmenu_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_logout) {
+            logout()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

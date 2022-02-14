@@ -11,13 +11,14 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.7903225806451613" />
         <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.14583333333333334" />
-        <entry key="app/src/main/res/layout/activity_map.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_map.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_map_app.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_select_option_auth.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_main_menu.xml" value="0.13072916666666667" />
         <entry key="app/src/main/res/layout/fragment_map.xml" value="0.14583333333333334" />
-        <entry key="app/src/main/res/menu/map_menu.xml" value="0.11851851851851852" />
+        <entry key="app/src/main/res/menu/mainmenu_menu.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/menu/map_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

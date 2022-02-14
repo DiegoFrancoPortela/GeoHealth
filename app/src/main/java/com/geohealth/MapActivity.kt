@@ -55,15 +55,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
 
     }
 
-    fun logout() {
-        // Metodo para cerrar sesión y cambiar de actividad.
-        mAuth.signOut()
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        // Finish para terminar esta Activity
-        finish()
-    }
-
     fun backtoMenu() {
         val intent = Intent(this, MainMenuActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -114,7 +105,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerC
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_logout) {
+        if (item.itemId == R.id.action_backtoMenu) {
             backtoMenu()
         }
         return super.onOptionsItemSelected(item)
