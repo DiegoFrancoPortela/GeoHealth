@@ -53,16 +53,18 @@ class LoginActivity : AppCompatActivity() {
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful()) {
                                 //Toast.makeText(this,"Login Exitoso",Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this, MapActivity::class.java)
+                                val intent = Intent(this, MainMenuActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 startActivity(intent)
                             } else {
                                 Toast.makeText(this,"Email o Contraseña incorrectos",Toast.LENGTH_SHORT).show()
+                                progressDialog.dismiss()
                             }
                         }
                 }
                 else {
                     Toast.makeText(this,"La contraseña debe tener más de 6 carácteres",Toast.LENGTH_SHORT).show()
+                    progressDialog.dismiss()
                 }
             }
              else {
