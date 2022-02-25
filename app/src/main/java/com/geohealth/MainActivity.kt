@@ -3,45 +3,51 @@ package com.geohealth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
-    private val TAG = "RealTime"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
 
-        database = Firebase.database("https://geohealthalex-8d6b2-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
+        database =
+            Firebase.database("https://geohealthalex-8d6b2-default-rtdb.europe-west1.firebasedatabase.app/")
+                .getReference("Users")
 
         val mButtonMedic: Button = findViewById(R.id.btnMedic)
         val mButtonPacient: Button = findViewById(R.id.btnClient)
-        val mButtonFirebase: Button = findViewById(R.id.firebase)
+        fun goToLogin(tipo: String) {
+            val intent = Intent(this, LoginActivity::class.java)
 
-        fun goToSelectAuth() {
-            val intent = Intent(this, SelectOptionAuthActivity::class.java)
+            intent.putExtra("tipo", tipo)
+
             startActivity(intent)
         }
         mButtonPacient.setOnClickListener() {
-            goToSelectAuth()
+            goToLogin("cliente")
         }
         mButtonMedic.setOnClickListener() {
-            goToSelectAuth()
-        }
-        mButtonFirebase.setOnClickListener() {
-            writeNewData("Alex",2.1152,-5.1446)
+            goToLogin("profesional")
         }
 
 
     }
-    fun writeNewData(nombre: String, latitud: Double, longitud: Double){
-        val profesional = firebase(nombre,latitud,longitud)
-        database.child("AA01").setValue(profesional)
+    override fun onStart() {
+        super.onStart()
+        // Si esto se cumple, quiere decir que tenemos un usuario creado.
+        // Básicamente, al tener una sesion ya abierta, directamente evita el Login y el Register.
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            val intent = Intent(this, MapActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
     }
+
 }

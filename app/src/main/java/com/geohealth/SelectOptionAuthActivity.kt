@@ -1,11 +1,10 @@
 package com.geohealth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 
 class SelectOptionAuthActivity : AppCompatActivity() {
 
@@ -13,6 +12,7 @@ class SelectOptionAuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_option_auth)
         setSupportActionBar(findViewById(R.id.toolbar))
+        val valor = intent.getStringExtra("tipo")
         supportActionBar?.setTitle("Seleccionar Opcion")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val mButtonTengoCuenta: Button = findViewById(R.id.botonGoToLogin)
@@ -23,18 +23,22 @@ class SelectOptionAuthActivity : AppCompatActivity() {
         }
 
         mButtonRegistro.setOnClickListener() {
-            goToRegister()
+            if (valor != null) {
+                goToRegister(valor)
+            }
         }
     }
 
-    private fun goToRegister() {
-        val intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
+    private fun goToRegister(valor: String) {
+        if (valor == "cliente"){
+            val intent = Intent(this, RegisterActivity::class.java)
+            println("llendo registro cliente")
+            startActivity(intent)
+        }
     }
 
     private fun goToLogin() {
         val intent = Intent(this, LoginActivity::class.java)
-        Log.d("login", "entra")
         startActivity(intent)
     }
 }

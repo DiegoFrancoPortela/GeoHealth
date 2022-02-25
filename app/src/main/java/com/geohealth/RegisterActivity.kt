@@ -1,5 +1,6 @@
 package com.geohealth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -18,10 +19,14 @@ class RegisterActivity : AppCompatActivity() {
         val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
         val mDatabase: DatabaseReference = FirebaseDatabase.getInstance().getReference()
 
+        println("activity prof")
+
         val mButtonRegister: Button = findViewById(R.id.btnRegister)
         val mTextInputEmail: TextInputEditText = findViewById(R.id.textInputEmail)
         val mTextInputPassword: TextInputEditText = findViewById(R.id.textInputPassword)
         val mTextInputName: TextInputEditText = findViewById(R.id.textInputName)
+        val valor = intent.getStringExtra("tipo")
+        println(valor)
         fun saveUser(name: String,email: String) {
             val user = Usuarios();
 
@@ -66,10 +71,16 @@ class RegisterActivity : AppCompatActivity() {
             }
 
         }
+        fun goToLogin() {
+            val intent = Intent(this, LoginActivity::class.java)
 
+            startActivity(intent)
+        }
         mButtonRegister.setOnClickListener(){
             registerUser()
+            goToLogin()
         }
+
 
 
     }

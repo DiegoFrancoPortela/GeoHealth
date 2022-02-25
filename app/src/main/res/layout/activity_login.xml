@@ -15,11 +15,10 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/medic"
+            android:layout_gravity="center"
             android:layout_marginTop="100dp"
             android:layout_marginBottom="20dp"
-            android:layout_gravity="center"
-            />
+            android:src="@drawable/medic" />
 
 
         <LinearLayout
@@ -85,23 +84,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
+            android:gravity="bottom"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LOG IN"
+                android:layout_margin="30dp"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/colorPrimary"
+                android:text="LOG IN"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnRegisterLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:textColor="@color/white"/>
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/colorAccent"
+                android:text="No tienes cuenta? Registrate aqui"
+                android:textColor="@color/white" />
 
         </LinearLayout>
-
-
-
 
 
     </LinearLayout>

@@ -26,15 +26,19 @@ class LoginActivity : AppCompatActivity() {
 
         val mTextInputEmail: TextInputEditText = findViewById(R.id.textInputEmail)
         val mTextInputPassword: TextInputEditText = findViewById(R.id.textInputPassword)
+        val valor = intent.getStringExtra("tipo")
+
 
         val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+
         /*
-        TODO("implementar progres dialog")
+
         val mDialog: AlertDialog = SpotsDialog.Builder(LoginActivity).setContext()
          */
         val mDatabase: DatabaseReference = FirebaseDatabase.getInstance().getReference()
 
         val mButtonLogin: Button = findViewById(R.id.btnLogin)
+        val mButtonRegisterLogin: Button = findViewById(R.id.btnRegisterLog)
 
         fun login() {
             var email: String = mTextInputEmail.getText().toString()
@@ -73,11 +77,22 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        mButtonLogin.setOnClickListener() {
-            login()
-
+        mButtonRegisterLogin.setOnClickListener() {
+            if (valor != null) {
+                goToRegister(valor)
+            }
         }
 
+        mButtonLogin.setOnClickListener() {
+            login()
+        }
+
+    }
+
+    private fun goToRegister(valor: String) {
+        val intent = Intent(this, RegisterActivity::class.java)
+        intent.putExtra("tipo", valor)
+        startActivity(intent)
     }
 
     private fun goToMap() {
